@@ -1,0 +1,19 @@
+---
+import {getCollection} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const certs = await getCollection('certs');
+---
+
+<Layout title="Certifications | DevRoss">
+    <h2>Certification Timeline</h2>
+    <ul>
+        {
+            certs.map((cert) => (
+                <li>
+                    <strong>{cert.data.name}</strong> — {cert.data.issuer} ({cert.data.date})
+                </li>
+            ))
+        }
+    </ul>
+</Layout>

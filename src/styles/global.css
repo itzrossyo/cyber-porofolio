@@ -1,0 +1,276 @@
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Professional font */
+    background-color: #0a0a0a;
+    /* Very dark background */
+    color: #e0e0e0;
+    /* Lighter text color */
+    line-height: 1.6;
+    font-size: 16px;
+    padding: 0;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+
+}
+
+a {
+    color: #00b8d4;
+    /* Bright cyan for links */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+h1,
+h2 {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+h2 {
+    border-bottom: 2px solid #444;
+    padding-bottom: 0.25rem;
+}
+
+/* Card Style */
+.card {
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Navbar Style */
+nav {
+    background-color: #1c1c1c;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav a {
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #00b8d4;
+}
+
+/* Hero Section */
+.hero {
+    background: url('/hero-bg.jpg') no-repeat center center/cover;
+    padding: 10rem 2rem;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    height: 80vh;
+    /* Increased height for visual impact */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+
+    /* More subtle overlay */
+    padding: 2rem;
+    border-radius: 10px;
+    z-index: 1;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    /* Adjust size for readability */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+
+.hero-buttons .btn {
+    display: inline-block;
+    background-color: #00b8d4;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    margin: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-buttons .btn:hover {
+    background-color: #0091a2;
+    transform: scale(1.05);
+}
+
+.hero-buttons .btn.secondary {
+    background-color: #555;
+}
+
+.hero-buttons .btn.secondary:hover {
+    background-color: #333;
+}
+
+/* Network Grid Section */
+/* Network Grid Section */
+.network-grid {
+    display: flex;
+    justify-content: center;
+    margin-top: -14rem;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Image Container */
+.network-image-container {
+    position: relative;
+}
+
+/* Network Image Styling */
+.network-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Category Badges */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.badge.htb {
+    background-color: #0077cc;
+    color: white;
+}
+
+.badge.thm {
+    background-color: #f50;
+    color: white;
+}
+
+.badge.soc {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Scrollable TOC Sidebar */
+.toc {
+    position: sticky;
+    top: 1rem;
+    max-height: 85vh;
+    overflow-y: auto;
+    margin-left: 2rem;
+    padding: 1rem;
+    background-color: #2a2a2a;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.toc h3 {
+    margin-bottom: 1rem;
+}
+
+.toc a {
+    color: #00b8d4;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.toc a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-top: auto;
+}
+
+footer a {
+    color: #00b8d4;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+        /* Smaller text on mobile */
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+        /* Reduce padding on mobile */
+    }
+}

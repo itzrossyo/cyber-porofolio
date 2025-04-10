@@ -1,0 +1,35 @@
+---
+import {getCollection} from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const allPosts = await getCollection('walkthroughs');
+const posts = allPosts.filter((p) => p.data.category === 'htb');
+---
+
+<Layout title="HTB Walkthroughs | DevRoss">
+    <h2>HTB Walkthroughs</h2>
+    {
+        posts.map((post) => {
+            const slugParts = post.slug.split('/');
+            const realSlug = slugParts[1];
+
+            // Adding the link to the Pen Test Report page
+            const reportLink = `/reports/htb-report`; // Modify this for dynamic report generation if needed
+
+            return (
+                <div class="card">
+                    <h3>
+                        <a href={`/walkthrough/${post.data.category}/${realSlug}`}>{post.data.title}</a>
+                        <span class={`badge ${post.data.category}`}>{post.data.category}</span>
+                    </h3>
+                    <p>
+                        <strong>Date:</strong> {post.data.date}
+                    </p>
+                    <p>
+                        <strong>Tags:</strong> {post.data.tags.join(', ')}
+                    </p>
+                </div>
+            );
+        })
+    }
+</Layout>
