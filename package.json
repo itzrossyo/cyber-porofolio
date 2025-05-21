@@ -9,6 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.6.1"
+    "@tailwindcss/vite": "^4.1.7",
+    "astro": "^5.6.1",
+    "shiki": "^3.1.0",
+    "swetrix": "^1.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro-compress": "^2.3.8",
+    "sass-embedded": "^1.89.0",
+    "tailwindcss": "^3.4.1"
   }
 }

@@ -1,0 +1,120 @@
+---
+interface Project {
+    name: string;
+    description: string;
+    link: {
+        url: string;
+        title?: string;
+        target?: string;
+    };
+}
+
+const projects: Project[] = [
+    {
+        name: 'CSLogon',
+        description: 'CSLogon is an Ecommerce platform for selling and buying a clients books with Sanity as their CMS for easy management. And Stripe for payment processing.',
+        link: {
+            url: 'https://cslogan.com/',
+        },
+    },
+    {
+        name: 'Qivi.io',
+        description: 'Qivi is an all-in-one application designed to streamline business operations, enhance productivity, and maximize success. Data security is a priority.',
+        link: {
+            url: 'https://qivi.io/',
+        },
+    },
+    {
+        name: 'TECHPOINT.de',
+        description: 'TECHPOINT is a local IT service provider based in the Starnberg district and the Fünfseenland region, specializing in delivering reliable and modern IT solutions.',
+        link: {
+            url: 'https://techpoint.de/',
+        },
+    },
+];
+---
+
+<div class="projects-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+            projects.map((project, index) => (
+                <div class="project-card" style={`--delay: ${index * 100}ms`}>
+                    <div class="project-content">
+                        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors duration-300">
+                            {project.name}
+                            <span class="text-primary ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">→</span>
+                        </h3>
+
+                        <p class="text-gray-400 mb-4 group-hover:text-gray-300 transition-colors duration-300">{project.description}</p>
+
+                        {project.link?.url && (
+                            <a
+                                href={project.link.url}
+                                title={project.link.title || project.name}
+                                target={project.link.target || '_blank'}
+                                class="
+                                    inline-block px-4 py-2.5 text-center
+                                    border border-gray-600 rounded-lg
+                                    text-gray-300 hover:text-white
+                                    hover:border-primary hover:bg-primary/10
+                                    transition-all duration-300
+                                    transform hover:-translate-y-0.5
+                                    focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-gray-900
+                                ">
+                                View Project
+                            </a>
+                        )}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<style>
+    .project-card {
+        @apply relative overflow-hidden rounded-xl border border-gray-700 bg-gray-900/50 backdrop-blur-sm p-6;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease-out forwards;
+        animation-delay: calc(var(--delay) + 200ms);
+        transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+        @apply border-primary/30 shadow-lg shadow-primary/10;
+        transform: translateY(-2px) !important;
+    }
+
+    .project-card::before {
+        content: '';
+        @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0;
+        transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover::before {
+        opacity: 1;
+    }
+
+    .project-content {
+        @apply relative z-10 h-full flex flex-col;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .project-card {
+            animation-delay: calc(var(--delay) / 2 + 100ms);
+        }
+    }
+</style>
